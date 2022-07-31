@@ -1,5 +1,13 @@
+import DateComponent from "./Component/DateComponent";
+import Header from "./Component/Header";
+
 function App() {
-  return <div></div>;
+  return (
+    <>
+      <Header />
+      <DateComponent />
+    </>
+  );
 }
 
 export default App;
