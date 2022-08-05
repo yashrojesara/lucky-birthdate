@@ -11,13 +11,16 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "center",
-    marginTop: "2em",
     flexDirection: "column",
     alignItems: "center",
   },
   text: {
     maxWidth: "50%",
     textAlign: "center",
+  },
+  result: {
+    marginTop: "2em",
+    fontWeight: "bold",
   },
 });
 
@@ -36,7 +39,7 @@ function DateComponent() {
   const onClick = () => {
     setIsButtonClicked(true);
     const sum = getSum();
-    setLucky(sum % number === 0);
+    setLucky(sum % number === 0); // if sum is divisible by number then it is lucky
   };
 
   const getSum = () => {
@@ -47,7 +50,7 @@ function DateComponent() {
 
     const numArr = sumOfDate.toString().split("");
 
-    const sum = numArr.reduce(function (a, b) {
+    const sum = numArr.reduce((a, b) => {
       return parseInt(a) + parseInt(b);
     }, 0);
 
@@ -91,11 +94,11 @@ function DateComponent() {
       </Button>
 
       {isButtonCLicked && (
-        <span
-          style={{ marginTop: "2em", fontWeight: "bold" }}
-        >{`${"Your BirthDate is"} ${
-          lucky ? "LUCKY 🥳🥳🥳" : "UNLUCKY 😔😔😔"
-        }`}</span>
+        <span className={classes.result}>
+          {`${"Your BirthDate is"} ${
+            lucky ? "LUCKY 🥳🥳🥳" : "UNLUCKY 😔😔😔"
+          }`}
+        </span>
       )}
     </div>
   );
