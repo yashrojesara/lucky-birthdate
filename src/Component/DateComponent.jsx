@@ -59,12 +59,15 @@ function DateComponent() {
 
   return (
     <div className={classes.root}>
+      <Typography variant="h5" className={classes.text}>
+        Is Your BirthDate Lucky?
+      </Typography>
       <Typography
         variant="h6"
         className={classes.text}
-        style={{ marginBottom: "1em" }}
+        style={{ marginBottom: "1em", color: "darkblue" }}
       >
-        Is Your BirthDate Lucky?
+        (Note: We are not storing your data anywhere)
       </Typography>
 
       <LocalizationProvider dateAdapter={AdapterDateFns}>
