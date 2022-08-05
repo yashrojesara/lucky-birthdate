@@ -1,5 +1,29 @@
+import DateComponent from "./Component/DateComponent";
+import Footer from "./Component/Footer";
+import Header from "./Component/Header";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+  },
+});
+
 function App() {
-  return <div></div>;
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Header />
+      <DateComponent />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
