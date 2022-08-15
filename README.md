@@ -6,3 +6,5 @@ Technology: ReactJS
 ## Demo
 
 ![lucky](https://user-images.githubusercontent.com/70641781/183051757-f1a9a436-ce11-438c-addd-a54504bcb3b2.gif)
+
+Live: https://lucky-birthdate-mark11.netlify.app/
