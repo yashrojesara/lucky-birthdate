@@ -31,6 +31,7 @@ function DateComponent() {
   const [number, setNumber] = React.useState(0);
   const [lucky, setLucky] = React.useState(false);
   const [isButtonCLicked, setIsButtonClicked] = React.useState(false);
+  const [message, setMessage] = React.useState("");
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -38,6 +39,11 @@ function DateComponent() {
 
   const onClick = () => {
     setIsButtonClicked(true);
+    if (number <= 0) {
+      setMessage("Please enter a number greater than 0 !!!");
+      return;
+    }
+    setMessage("");
     const sum = getSum();
     setLucky(sum % number === 0); // if sum is divisible by number then it is lucky
   };
@@ -77,7 +83,6 @@ function DateComponent() {
             inputFormat="dd/MM/yyyy"
             value={value}
             onChange={handleChange}
-            maxDate={new Date()}
             renderInput={(params) => <TextField {...params} />}
           />
         </Stack>
@@ -96,13 +101,18 @@ function DateComponent() {
         Check
       </Button>
 
-      {isButtonCLicked && (
-        <span className={classes.result}>
-          {`${"Your BirthDate is"} ${
-            lucky ? "LUCKY 🥳🥳🥳" : "UNLUCKY 😔😔😔"
-          }`}
-        </span>
-      )}
+      {isButtonCLicked &&
+        (message ? (
+          <span className={classes.result}>{message}</span>
+        ) : (
+          <>
+            <span className={classes.result}>
+              {`${"Your BirthDate is"} ${
+                lucky ? "LUCKY 🥳🥳🥳" : "UNLUCKY 😔😔😔"
+              }`}
+            </span>
+          </>
+        ))}
     </div>
   );
 }
